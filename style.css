@@ -1,0 +1,214 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top left, #0f0f1a, #050510 80%);
+    color: #eee;
+    overflow: hidden;
+  }
+  
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 500px;
+    padding: 2em;
+    margin: 40px auto;       /* adds space at top & bottom */
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 0 30px rgba(0, 255, 200, 0.4),
+                0 0 60px rgba(140, 82, 255, 0.3);
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1s ease-out;
+  
+    max-height: 90vh;        /* keep it within viewport */
+    overflow-y: auto;        /* scroll inside if too tall */
+  }
+  
+  
+  
+  .title {
+    font-family: "Orbitron", sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 1.2em;
+    color: #00ffe0;
+    text-shadow: 0 0 12px #00ffe0, 0 0 25px #8c52ff;
+  }
+  
+  /* Category Buttons */
+  #options-container {
+    margin-bottom: 1.5em;
+  }
+  
+  #options-container h3 {
+    margin-bottom: 0.6em;
+    font-size: 1.2em;
+    color: #aaa;
+    letter-spacing: 1px;
+  }
+  
+  #options-container div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8em;
+  }
+  
+  #options-container button {
+    padding: 0.6em 1.4em;
+    border: none;
+    border-radius: 10px;
+    background: #111;
+    color: #eee;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(140, 82, 255, 0.8);
+  }
+  
+  #options-container button:hover {
+    background: #8c52ff;
+    color: #fff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px #8c52ff, 0 0 25px #8c52ff;
+  }
+  
+  #options-container button.active {
+    background: #8c52ff;
+    color: #fff;
+    box-shadow: 0 0 20px #8c52ff;
+  }
+  
+  #options-container button:disabled {
+    background: #333;
+    color: #666;
+    box-shadow: none;
+  }
+  
+  /* Letters grid */
+  .letter-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+    gap: 0.6em;
+    margin-bottom: 1.2em;
+  }
+  
+  #letter-container button {
+    height: 48px;
+    border-radius: 8px;
+    border: none;
+    background: #181818;
+    color: #eee;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+    box-shadow: 0 0 8px rgba(0, 255, 200, 0.4);
+  }
+  
+  #letter-container button:hover {
+    background: #00ffe0;
+    color: #111;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00ffe0, 0 0 25px #00ffe0;
+  }
+  
+  #letter-container button:disabled {
+    background: #333;
+    color: #555;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  /* Word display */
+  #user-input-section {
+    font-size: 2.2em;
+    margin-bottom: 1.2em;
+    letter-spacing: 0.25em;
+    text-shadow: 0 0 10px rgba(0,255,200,0.5);
+  }
+  
+  /* Canvas */
+  canvas {
+    display: block;
+    margin: auto;
+    background: #0a0a0f;
+    border: 3px solid #00ffe0;
+    border-radius: 12px;
+    margin-bottom: 1.2em;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.5);
+  }
+  
+  /* Popup */
+  .new-game-popup {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  #result-text h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+  
+  #result-text p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+  }
+  
+  .win-msg {
+    color: #39d78d;
+    text-shadow: 0 0 12px #39d78d, 0 0 20px #39d78d;
+  }
+  
+  .lose-msg {
+    color: #fe5152;
+    text-shadow: 0 0 12px #fe5152, 0 0 20px #fe5152;
+  }
+  
+  #new-game-button {
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8c52ff, #00ffe0);
+    color: #111;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #8c52ff, 0 0 25px #00ffe0;
+  }
+  
+  #new-game-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #8c52ff, 0 0 30px #00ffe0;
+  }
+  
+  /* Hide class */
+  .hide {
+    display: none;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
